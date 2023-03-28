@@ -1,0 +1,76 @@
+{% load static %}
+<header class="">
+    <nav class="navbar navbar-expand-lg">
+        <h5 style="position: absolute;margin-top: -1.5cm;margin-left: 0.43cm">Welcome</h5>
+        <div class="container" style="margin-left: 0cm">
+            <a class="navbar-brand" href="{% url "home_app:AboutUs" %}">
+                <h2>{{ request.user }} {{ request.user.last_name }}<em>.</em></h2></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item {% if request.resolver_match.url_name == "home" %}active{% endif %}">
+                        <a class="nav-link" href="{% url "home_app:home" %}" style="margin-right: 2cm">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item {% if request.resolver_match.url_name == "AboutUs" %}active{% endif %}">
+                        <a class="nav-link" href="{% url "home_app:AboutUs" %}"
+                           style="margin-right: 1cm;margin-left: -2cm">About Us</a>
+                    </li>
+                    <li class="nav-item {% if request.resolver_match.url_name == "article_list" %}active{% endif %}">
+                        <a class="nav-link" href="{% url "article:article_list" %}"
+                           style="margin-right: 1cm;margin-left: -1cm">Articles</a>
+                    </li>
+                    <li class="nav-item {% if request.resolver_match.url_name == "order" %}active{% endif %}">
+                        <a class="nav-link" href="{% url "order" %}"
+                           style="margin-right: 1cm;margin-left: -1cm">Order</a>
+                    </li>
+                    <li class="nav-item {% if request.resolver_match.url_name == "contact_us" %}active{% endif %}">
+                        <a class="nav-link" href="{% url "article:contact_us" %}" style="margin-left: -1cm">Contact
+                            Us</a>
+                    </li>
+                    <li class="nav-item">
+
+                        {% if request.user.is_authenticated %}
+                            <li class="nav-item {% if request.resolver_match.url_name == "profile" %}active{% endif %}">
+                                <a class="nav-link" href="{% url "article:profile" %}"
+                                   style="margin-right: -1.7cm;margin-left: -1cm">Profile</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url "account_app:edit" %}"
+                                   style="position: absolute;margin-right: 1cm;margin-left: -28.15cm;margin-top: 0.83cm">Edit
+                                    profile</a>
+                            </li>
+                            {% if user.profile.image %}
+                                <span><img src="{{ user.profile.image.url }}" width="40px" height="40px"
+                                           style="border-radius: 100%;position: absolute;margin-left: 3.3cm;margin-top: -0.2cm"
+                                           alt=""></span>
+                            {% else %}
+                                <span style="margin-right: 1cm"><img src="{% static "images/pd.jpg" %}" width="50px"
+                                                                     height="50px"
+                                                                     style="border-radius: 100%;position: absolute;margin-left: 4.5cm;margin-top: -0.1cm"
+                                                                     alt=""></span>
+                            {% endif %}
+                            <li><a class="nav-link" style="position: absolute;margin-right: -1cm;margin-left: 1cm"
+                                   href="{% url "account_app:logout" %}">Log Out </a>
+                            </li>
+                        {% else %}
+                            <li class="nav-item {% if request.resolver_match.url_name == "login" %}active{% endif %}">
+                                <a class="nav-link" href="{% url "account_app:login" %}"
+                                   style="margin-right: 1cm">Login</a>
+                            </li>
+                            <li class="nav-item {% if request.resolver_match.url_name == "register" %}active{% endif %}">
+                                <a class="nav-link" style="position: absolute;margin-left: -1cm"
+                                   href="{% url "account_app:register" %}">Register</a>
+                            </li>
+                        {% endif %}
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>

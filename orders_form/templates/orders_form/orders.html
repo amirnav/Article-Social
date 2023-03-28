@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    Order
+{% endblock %}
+{% block content %}
+    <html>
+    <body>
+    <div class="heading-page header-text">
+        <section class="page-heading">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="text-content">
+                            <h3 class="text-white">Order an inquiry :</h3>
+                            <h4 class="text-content">{{ request.user }} {{ request.user.last_name }}</h4>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <section class="contact-us">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="down-contact">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="sidebar-item contact-form">
+                                    <div class="sidebar-heading">
+                                        <h2>Contact With Us :</h2>
+                                    </div>
+
+                                    <h4 id=test style="margin-top: 1cm" class="text text-left">Add Your Inquiry :</h4>
+                                    <form class="container" style="margin-top: 1cm" action="" method="post">
+                                        {% csrf_token %}
+                                        <input class="form-control" name="first_name" type="text"
+                                               placeholder="First name">
+                                        <hr>
+                                        <input class="form-control" name="last_name" type="text"
+                                               placeholder="Last name">
+                                        <hr>
+                                        <input class="form-control" name="phone" type="text" placeholder="Phone number">
+                                        <hr>
+                                        <input class="form-control" name="country" type="text" placeholder="Country">
+                                        <hr>
+                                        <input class="form-control" name="city" type="text" placeholder="City">
+                                        <hr>
+                                        <input class="form-control" name="e_mail" type="text" placeholder="E-mail">
+                                        <hr>
+                                        <button type="submit" class="btn btn-success">Send</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </body>
+    </html>
+{% endblock %}

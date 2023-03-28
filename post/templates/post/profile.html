@@ -1,0 +1,165 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    My profile :
+{% endblock %}
+{% block content %}
+
+    <!-- Banner Ends Here -->
+    <div class="heading-page header-text">
+        <section class="page-heading">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="text-content">
+                            <h3 class="text-white">Profile :</h3>
+                            <h4 class="text-content">{{ request.user }} {{ request.user.last_name }}</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <section class="blog-posts grid-system" style="margin-top: -0.07cm">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="all-blog-posts" style="margin-top: 3cm">
+                        <li>
+                            <nav class="navbar navbar-expand-lg">
+                                <div class="container" style="margin-top: -3cm;margin-left: 0cm">
+                                    <a class="btn btn-dark" href="{% url "article:add_article" %}">
+                                        <h2>Add article<em></em></h2></a>
+                                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                            data-target="#navbarResponsive"
+                                            aria-controls="navbarResponsive" aria-expanded="false"
+                                            aria-label="Toggle navigation">
+                                        <span class="navbar-toggler-icon"></span>
+                                    </button>
+                                </div>
+                            </nav>
+                        </li>
+                        <h1 class="input100" style="margin-left: 1cm">My profile :</h1>
+                        <h1 class="navbar-brand" style="margin-left: 1cm">(List of my articles) </h1>
+                        <div class="row" style="margin-top: 1cm">
+                            {% for article in Article %}
+                                <div class="col-lg-6">
+                                    <div class="blog-post">
+                                        <div class="blog-thumb">
+                                            <img src="{{ article.image.url }}" alt="">
+                                        </div>
+                                        <div class="down-content">
+                                            <span>{{ article.category.all.get }}</span>
+                                            <a href="{{ article.get_absolut_url }}"><h4>{{ article.title }}</h4></a>
+                                            <ul class="post-info">
+                                                <li><a href="#">{{ article.author.get_full_name }}</a></li>
+                                                <li><a href="#">{{ article.request.user }}</a></li>
+                                                <li><a href="#">12 Comments</a></li>
+                                            </ul>
+                                            <p>{{ article.body }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+
+                            {% if Article.has_other_pages %}
+                                <div class="col-lg-12">
+                                <ul class="page-numbers">
+                                {% if Article.has_previous %}
+                                    <li><a href="?page=
+
+
+
+
+
+
+
+
+
+                                            {{ Article.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}"><i
+                                            class="fa fa-angle-double-left"></i></a></li>
+                                {% endif %}
+                                {% for i in Article.paginator.page_range %}
+                                    {% if Article.number == i %}
+                                        <li class="active"><a href="?page=
+
+
+
+
+
+
+
+
+
+                                                {{ i }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">{{ i }}</a>
+                                        </li>
+                                    {% else %}
+                                        <li><a href="?page=
+
+
+
+
+
+
+
+
+
+                                                {{ i }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">{{ i }}</a>
+                                        </li>
+                                    {% endif %}
+
+                                {% endfor %}
+                                {% if Article.has_next %}
+                                    <li><a href="?page=
+
+
+
+
+
+
+
+
+
+                                            {{ Article.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}"><i
+                                            class="fa fa-angle-double-right"></i></a></li>
+                                {% endif %}
+                            {% endif %}
+                            </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="input100" style="margin-top: -25cm;margin-left: 19cm;margin-right: -25cm">
+                    {% include "includes/side_bar.html" %}
+                </div>
+            </div>
+    </section>
+
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="social-icons">
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Behance</a></li>
+                        <li><a href="#">Linkedin</a></li>
+                        <li><a href="#">Dribbble</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-12">
+                    <div class="copyright-text">
+                        <p>Copyright 2020 Stand Blog Co.
+
+                            | Design: <a rel="nofollow" href="https://templatemo.com" target="_parent">TemplateMo</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+{% endblock %}

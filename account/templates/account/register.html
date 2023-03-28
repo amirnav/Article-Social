@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    Register
+{% endblock %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Register</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="{% static "images/icons/favicon.ico" %}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static "vendor/vendor2/bootstrap/css/bootstrap.min.css" %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static "fonts/font-awesome-4.7.0/css/font-awesome.min.css" %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static "fonts/Linearicons-Free-v1.0.0/icon-font.min.css" %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static "vendor/vendor2/animate/animate.css" %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static "vendor/vendor2/css-hamburgers/hamburgers.min.css" %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static "vendor/vendor2/animsition/css/animsition.min.css" %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static "vendor/vendor2/select2/select2.min.css" %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static "vendor/vendor2/daterangepicker/daterangepicker.css" %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static "css/util.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}">
+<!--===============================================================================================-->
+</head>
+<body>
+<section class="contact-us">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="down-contact">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="sidebar-item contact-form">
+                                    <div class="sidebar-heading">
+                                        <hr>
+                                    </div>
+                                    <div class="content">
+                                        <h3 class="input100" style="margin-left: -0.5cm">Edit your profile :</h3>
+                                        <hr class="input100" style="margin-left: -0.5cm; margin-bottom: 1cm">
+                                        <form id="contact" action="" method="post">
+                                            {% csrf_token %}
+                                            <div class="row">
+                                                <img style="position: absolute;margin-left: 900px" width="300" height="300" src="{% static "images/20.jpg" %}" alt="">
+
+                                                <div class="">
+                                                    {{ form }}
+
+                                                    <div class="col-lg-12">
+                                                        <fieldset>
+                                                            <button type="submit" id="form-submit" class="main-button" style="--button-bg: ">
+                                                                Send
+
+                                                            </button>
+                                                        </fieldset>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!--===============================================================================================-->
+	<script src="{% static "vendor/vendor2/jquery/jquery-3.2.1.min.js" %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static "vendor/vendor2/animsition/js/animsition.min.js"%}"></script>
+<!--===============================================================================================-->
+	<script src="{% static "vendor/vendor2/bootstrap/js/popper.js" %}"></script>
+	<script src="{% static "vendor/vendor2/bootstrap/js/bootstrap.min.js" %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static "vendor/vendor2/select2/select2.min.js" %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static "vendor/vendor2/daterangepicker/moment.min.js" %}"></script>
+	<script src="{% static "vendor/vendor2/daterangepicker/daterangepicker.js" %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static "vendor/vendor2/countdowntime/countdowntime.js" %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static "js/main.js" %}"></script>
+
+</body>
+</html>
+{% endblock %}

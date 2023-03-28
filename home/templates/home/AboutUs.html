@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% load static %}
+{% load static %}
+{% load social_share %}
+{% block title %}
+    About Us
+{% endblock %}
+{% block content %}
+
+    <!-- Page Content -->
+    <!-- Banner Starts Here -->
+    <div class="heading-page header-text">
+        <section class="page-heading">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="text-content">
+                            <h4>about us</h4>
+                            <h2>more about us!</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Banner Ends Here -->
+
+
+    <section class="about-us">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <img src="{% static "images/about-us.jpg" %}" alt="">
+                    <h1 class="input100" style="margin-top: 2cm">Our vetting process</h1>
+                    <p>Every project has its own requirements and in order to make sure that we match
+                        the best talents to our projects, we ask our candidates to go through a comprehensive
+                        yet straightforward vetting process.</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6" style="margin-bottom: 1cm">
+                    <h4>Apply</h4>
+                    <p>Join our growing network by filling out our comprehensive yet straightforward application
+                        form
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <h4>Vetting Process</h4>
+                    <p>Once you`ve completed the application form, one of our expert recruiters will initiate the vetting process </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <h4>Create a profile</h4>
+                    <p>Welcome aboard! if you`re at the top of your field, we`ll create your account and profile. you can even help us in the process </p>
+                </div>
+                <div class="col-lg-6">
+                    <h4>Project match</h4>
+                    <p>you`ll be working on an interesting project within two weeks, if not much sooner.</p>
+                </div>
+
+            </div>
+                                <div class="col-lg-4">
+                        <div class="main-button align container-login100" style=" margin-left: 4.5cm ; margin-right: -14.9cm;margin-bottom: 1.5cm  ">
+                            <a rel="nofollow" href="{% url "order" %}" target="_parent">Order Now</a>
+
+                        </div>
+
+                    </div>
+
+
+            </div>
+
+
+    </section>
+
+{% endblock %}

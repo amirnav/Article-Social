@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    Article`s List
+{% endblock %}
+{% block content %}
+    <div class="heading-page header-text">
+        <section class="page-heading">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="text-content">
+                            <h3 class="text-white">Order an inquiry :</h3>
+                            <h4 class="text-content">{{ request.user }} {{ request.user.last_name }}</h4>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <section class="contact-us">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-12">
+                    <div class="down-contact">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="sidebar-item contact-form">
+                                    <div class="sidebar-heading">
+                                        <h2>Add your article :</h2>
+                                    </div>
+                                    <div class="container-login100">
+                                        <form  method="post" enctype="multipart/form-data">
+                                            {% csrf_token %}
+                                            <div class="container-login100">
+                                                <div class="container-login100">
+                                                    <h3>Add article :</h3>
+                                                    <hr>
+                                                    {{ form.as_div }}
+                                                    <div class="col-lg-12">
+                                                        <fieldset>
+                                                            <button type="submit" id="form-submit" class="main-button"
+                                                                    style="--button-bg:1cm">
+                                                                Send
+                                                                Article
+                                                            </button>
+                                                        </fieldset>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
